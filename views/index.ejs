@@ -1,0 +1,15 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <main>
+            <h1>Activities</h1>
+            <% activities.forEach((activity) => { %>
+                <ul>
+                    <li> <%= activity.name %> <%= activity.money %></li>
+                </ul>
+            <% }) %>
+        </main>
+    </body>
+</html>

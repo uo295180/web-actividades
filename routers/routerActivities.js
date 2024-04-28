@@ -5,7 +5,9 @@ let activities = require("../data/activities")
 
 
 routerActivities.get("/", (req, res) => {
-    res.send(activities)
+    res.render("index", {
+        activities: activities
+    })
 })
 
 
