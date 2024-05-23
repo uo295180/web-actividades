@@ -16,16 +16,22 @@ routerActivities.post("/donate", (req, res) => {
     let activityName = req.body.activityName
     let money = parseFloat(req.body.money)
 
+    if(money <= 0){
+        res.send("You must donate a quantity above zero")
+        return
+    }
+
     // Checks
     let user = users.find( u => u.name==userName && u.password == password)
     if(user == null){
         res.send("Error")
         return
     }
-    if ( user.money <= money ){
-        res.send("You don's have money")
+    if ( user.money < money ){
+        res.send("You dont have money")
         return
     } 
+    
     let activity = activities.find( a => a.name == activityName )
     if( activity == null ){
         res.send("Not valid activity")
